@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>Display current user's moods on this page</h1>
+    </header>
+ 
+    <ul>
+      {{#each moods}}
+        {{> mood}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="mood">
+  <li>{{description}}</li>
+</template>
