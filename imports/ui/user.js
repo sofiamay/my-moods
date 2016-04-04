@@ -1,11 +1,10 @@
 import { Template } from 'meteor/templating';
+import { Moods } from '../api/moods.js';
  
 import './user.html';
  
 Template.body.helpers({
-  moods: [
-    { description: 'I felt happy today' },
-    { description: 'I felt sad today' },
-    { description: 'I felt anxious today' },
-  ],
+  moods() {
+    return Moods.find({});
+  },
 });
