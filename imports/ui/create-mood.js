@@ -12,6 +12,8 @@ Template.createMood.helpers({
 });
 
 Template.createMood.events({
+
+  //Submit a new behavior to the database
   'click #addBehavior'(event, instance) {
     var target = instance.$('#newBehavior');
     var text = target.val();
@@ -20,6 +22,8 @@ Template.createMood.events({
     Behaviors.insert({name: text, value: true});
     target.val('');
   },
+
+  //Submit a new mood to teh dabase 
   'submit .new-mood'(event){
     event.preventDefault();
     const $form = ($(event.target));
@@ -31,11 +35,15 @@ Template.createMood.events({
       behaviors.push(checkedBehaviors[i].value);
     }
 
+    //Add new Mood to database
     Moods.insert({
           description: description,
           polarity: polarity,
           behaviors: behaviors,
           createdAt: new Date(), // current time
         });
+
+    //redirect to home page
+    FlowRouter.go('/');
   }
 });
