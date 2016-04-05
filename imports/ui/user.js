@@ -6,6 +6,6 @@ import './user.html';
  
 Template.user.helpers({
   moods() {
-    return Moods.find({}, { sort: { createdAt: -1 } });
+    return Moods.find({user: Meteor.userId()}, { sort: { createdAt: -1 } });
   },
 });
