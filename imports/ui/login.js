@@ -19,3 +19,26 @@ Template.login.onRendered(function(){
       e.preventDefault();
     });
 });
+
+Template.login.events({
+  'submit form': function(event) {
+    event.preventDefault();
+    // Register Form
+    if (event.target.id === 'register-form'){
+      var emailVar = event.target.registerEmail.value;
+      var passwordVar = event.target.registerPassword.value;
+
+      Accounts.createUser({
+        email: emailVar,
+        password: passwordVar,
+      });
+    }
+
+    if (event.target.id === 'login-form') {
+      var emailVar = event.target.loginEmail.value;
+      var passwordVar = event.target.loginPassword.value;
+
+      Meteor.loginWithPassword(emailVar, passwordVar);
+    }
+  }
+});
