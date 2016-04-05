@@ -1,18 +1,18 @@
 
 FlowRouter.route('/', {
     action: function(params, queryParams) {
-        BlazeLayout.render('currentPage', { main: 'user' } );
+        BlazeLayout.render('currentPage', { top: 'nav', main: 'user' } );
     }
 });
 
 FlowRouter.route('/create', {
     action: function(params, queryParams) {
-    	BlazeLayout.render('currentPage', { main: 'createMood' } );
+    	BlazeLayout.render('currentPage', { top: 'nav', main: 'user' } );
     }
 });
 
 FlowRouter.route('/login', {
     action: function(params, queryParams) {
-    	BlazeLayout.render('currentPage', { main: 'login' } );
+    	BlazeLayout.render('currentPage', { top: 'nav', main: 'user' } );
     }
 });
