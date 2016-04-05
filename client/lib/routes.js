@@ -3,7 +3,6 @@ var exposed = FlowRouter.group ({});
 var loggedIn = FlowRouter.group({
   triggersEnter: [function(context, redirect) {
     if (!Meteor.userId()) {
-      console.log("Is this triggering?");
       var route = FlowRouter.current();
       if (route.route.name !== 'login') {
         Session.set ('redirectAfterLogin', route.path);
@@ -34,10 +33,18 @@ loggedIn.route('/create', {
     }
 });
 
+loggedIn.route('/logout', {
+    name: 'logout',
+    action: function(params, queryParams) {
+      Meteor.logout(function() {
+        FlowRouter.go('/login');
+      });
+    }
+});
+
 // Auth:
 Accounts.onLogin(function() {
   var redirect = Session.get('redirectAfterLogin');
-  console.log(redirect);
   if (redirect) {
     if (redirect !== '/login') {
       FlowRouter.go(redirect);
