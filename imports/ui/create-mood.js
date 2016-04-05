@@ -9,3 +9,13 @@ Template.createMood.helpers({
     return Behaviors.find({});
   },
 });
+
+Template.createMood.events({
+  'click #addBehavior'(event, instance) {
+    var target = instance.$('#newBehavior');
+    var text = target.val();
+
+    Behaviors.insert({name: text, value: true});
+    target.val('');
+  }
+});

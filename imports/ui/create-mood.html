@@ -16,21 +16,31 @@
         <option value="2">Somewhat energized</option>
         <option value="3">Pretty hyper</option>
         <option value="4">Bouncing off the walls</option>
-        <option value="5">Complete mania</option>
+        <option value="5">Extremely manic</option>
       </select>
       ​<textarea id="txtArea" rows="10" cols="70" placeholder="Add a description"></textarea>
           
           <!-- Dynamically insert behaviors based on Behavior model -->
+          <div class="behaviors">
+            <div class="title">
+              Check all possible influences on your mood:
+            </div>
+            <div class="list">
+              <ul>
+                {{#each behaviors}}
+                  {{> behavior}}
+                {{/each}}
+              </ul>
+            </div>
+
+            <div>
+              <input type="text" id ="newBehavior" name="text" placeholder="Add a new influece:" />
+              <button type="button" id="addBehavior">Add</button>
+            </div>
+
+          </div>
 
         </form>
-
-              <div class="behaviors">
-        <ul>
-          {{#each behaviors}}
-            {{> behavior}}
-          {{/each}}
-        </ul>
-      </div>
 
   </div>
 </template>
