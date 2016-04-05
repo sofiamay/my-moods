@@ -3,3 +3,9 @@ FlowRouter.route('/', {
         console.log('this should be the homepage');
     }
 });
+
+FlowRouter.route('/create', {
+    action: function(params, queryParams) {
+    	//should render create-mood
+    }
+});
