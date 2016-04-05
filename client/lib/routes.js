@@ -10,3 +10,9 @@ FlowRouter.route('/create', {
     	BlazeLayout.render('currentPage', { main: 'createMood' } );
     }
 });
+
+FlowRouter.route('/login', {
+    action: function(params, queryParams) {
+    	BlazeLayout.render('currentPage', { main: 'login' } );
+    }
+});
