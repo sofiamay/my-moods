@@ -1,1 +1,1 @@
-import '../imports/ui/user.js';
+import '../imports/ui/currentpage.js';
