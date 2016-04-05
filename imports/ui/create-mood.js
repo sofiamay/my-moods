@@ -7,7 +7,7 @@ import './create-mood.html';
 
 Template.createMood.helpers({
   behaviors() {
-    return Behaviors.find({});
+    return Behaviors.find({user: Meteor.userId()});
   },
 });
 
