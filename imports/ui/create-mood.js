@@ -21,7 +21,6 @@ Template.createMood.events({
     //no userId? Error, redirect to login
     if (!userId) {FlowRouter.go('/login');}
 
-    //make sure to add the user once auth is implemented!
     Behaviors.insert({name: text, value: true, user: userId});
     target.val('');
   },
