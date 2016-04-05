@@ -7,6 +7,6 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/create', {
     action: function(params, queryParams) {
-    	//should render create-mood
+    	BlazeLayout.render('currentPage', { main: 'createMood' } );
     }
 });

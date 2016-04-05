@@ -1,5 +1,37 @@
-<template name="create-mood">
-	<div class="container">
-		<h1>How are you feeling today?</h1>
-	</div>
+<template name="createMood">
+  <div class="container">
+    <div class="title">
+      <h1>How are you feeling today?</h1>
+    </div>
+
+    <form class="new-mood">
+      <!-- Mood value from -4 to 4 -->
+      <select class="polarity">
+        <option value="-4">Extremely depressed</option>
+        <option value="-3">Very depressed</option>
+        <option value="-2">Somewhat depressed</option>
+        <option value="-1">A little depressed</option>
+        <option value="0">Neutral</option>
+        <option value="1">A litle energized</option>
+        <option value="2">Somewhat energized</option>
+        <option value="3">Pretty hyper</option>
+        <option value="4">Bouncing off the walls</option>
+        <option value="5">Complete mania</option>
+      </select>
+      ​<textarea id="txtArea" rows="10" cols="70" placeholder="Add a description"></textarea>
+          
+          <!-- Dynamically insert behaviors based on Behavior model -->
+
+        </form>
+
+              <div class="behaviors">
+        <ul>
+          {{#each behaviors}}
+            {{> behavior}}
+          {{/each}}
+        </ul>
+      </div>
+
+  </div>
 </template>
+
