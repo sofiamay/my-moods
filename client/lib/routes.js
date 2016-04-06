@@ -44,13 +44,14 @@ loggedIn.route('/logout', {
 
 // Auth:
 Accounts.onLogin(function() {
-  var redirect = Session.get('redirectAfterLogin');
-  if (redirect) {
-    if (redirect !== '/login') {
-      FlowRouter.go(redirect);
-    }
-  } else {
-    FlowRouter.go('/')
-  }
+  // var redirect = Session.get('redirectAfterLogin');
+  // if (redirect) {
+  //   if (redirect !== '/login') {
+  //     FlowRouter.go(redirect);
+  //   }
+  // } else {
+  //   FlowRouter.go('/')
+  // }
+  FlowRouter.go('/create?welcome=true');
 });
 

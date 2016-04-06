@@ -5,10 +5,17 @@ import { Moods } from '../api/moods.js';
 import './behavior.js'
 import './create-mood.html';
 
+
 Template.createMood.helpers({
   behaviors() {
     return Behaviors.find({user: Meteor.userId()});
   },
+  isWelcome() {
+    var params = FlowRouter.current().queryParams;
+    if (params['welcome']) { return true; } else {
+      return false;
+    }
+  }
 });
 
 Template.createMood.events({
@@ -49,7 +56,14 @@ Template.createMood.events({
           createdAt: new Date(), // current time
         });
 
-    //redirect to home page
-    FlowRouter.go('/');
+    //redirect to next
+    var redirect = Session.get('redirectAfterLogin');
+    if (redirect) {
+      if (redirect !== '/login') {
+        FlowRouter.go(redirect);
+      }
+    } else {
+      FlowRouter.go('/')
+    }
   }
 });
