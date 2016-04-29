@@ -4,11 +4,6 @@ import { Moods } from '../api/moods.js';
 import './mood.js'
 import './user.html';
  
-// Template.user.helpers({
-//   moods() {
-//     return Moods.find({user: Meteor.userId()}, { sort: { createdAt: -1 } });
-//   },
-// });
 
 Template.user.helpers({
   moods() {
